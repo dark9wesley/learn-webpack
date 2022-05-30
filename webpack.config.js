@@ -19,6 +19,9 @@ module.exports = {
           dataUrlCondition: {
             maxSize: 10 * 1024
           }
+        },
+        generator: {
+          filename: 'static/images/[hash:10][ext]'
         }
       }
     ]
