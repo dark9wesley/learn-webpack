@@ -15,7 +15,7 @@ module.exports = {
       },
       {
         test: /\.(png|svg|jpg|jpe?g|gif)$/i,
-        type: 'asset/resource',
+        type: 'asset',
         parser: {
           dataUrlCondition: {
             maxSize: 10 * 1024
@@ -23,6 +23,13 @@ module.exports = {
         },
         generator: {
           filename: 'static/images/[hash:10][ext]'
+        }
+      },
+      {
+        test: /\.(ttf|woff2?)$/,
+        type: 'asset/resource',
+        generator: {
+          filename: 'static/front/[hash:10][ext]'
         }
       }
     ]
