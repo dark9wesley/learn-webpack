@@ -14,7 +14,21 @@ module.exports = {
       },
       {
         test: /\.less$/,
-        use: [miniCssExtractPlugin.loader, 'css-loader', 'less-loader']
+        use: [
+          miniCssExtractPlugin.loader, 
+          'css-loader', 
+          {
+            loader: 'postcss-loader',
+            options: {
+              postcssOptions: {
+                plugins: [
+                  'postcss-preset-env'
+                ]
+              }
+            }
+          },
+          'less-loader'
+        ]
       },
       {
         test: /\.(png|svg|jpg|jpe?g|gif)$/i,
