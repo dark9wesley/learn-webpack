@@ -3,6 +3,7 @@ const commonConfig = require('./webpack.common')
 
 const devConfig = {
   mode: 'development',
+  devtool: 'cheap-module-source-map',
   output: {
     filename: 'main.js'
   },

@@ -5,6 +5,7 @@ const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 
 const prodConfig = {
   mode: 'production',
+  devtool: 'source-map',
   output: {
     path: path.resolve(__dirname, '../dist'),
     filename: 'js/main.js',
