@@ -53,7 +53,8 @@ module.exports = {
   },
   plugins: [
     new eslintPlugin({
-      context: path.resolve(__dirname, '../src')
+      context: path.resolve(__dirname, '../src'),
+      exclude: 'node_modules'
     }),
     new htmlPlugin({
       template: path.resolve(__dirname, '../public/index.html')
