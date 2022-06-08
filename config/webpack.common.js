@@ -10,7 +10,11 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel-loader'
+        loader: 'babel-loader',
+        options: {
+          cacheDirectory: true,
+          cacheCompression: false
+        }
       },
       {
         test: /\.less$/,
@@ -54,7 +58,9 @@ module.exports = {
   plugins: [
     new eslintPlugin({
       context: path.resolve(__dirname, '../src'),
-      exclude: 'node_modules'
+      exclude: 'node_modules',
+      cache: true,
+      cacheLocation: path.resolve(__dirname, '../node_modules/.cache/eslintcache')
     }),
     new htmlPlugin({
       template: path.resolve(__dirname, '../public/index.html')
