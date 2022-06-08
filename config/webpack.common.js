@@ -1,7 +1,10 @@
+const os = require('os')
 const path = require('path')
 const eslintPlugin = require('eslint-webpack-plugin')
 const htmlPlugin = require('html-webpack-plugin')
 const miniCssExtractPlugin = require('mini-css-extract-plugin')
+
+const threads = os.cpus().length;
 
 module.exports = {
   entry: './src/index.js',
@@ -10,11 +13,21 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel-loader',
-        options: {
-          cacheDirectory: true,
-          cacheCompression: false
-        }
+        use: [
+          {
+            loader: 'thread-loader',
+            options: {
+              works: threads
+            }
+          },
+          {
+            loader: 'babel-loader',
+            options: {
+              cacheDirectory: true,
+              cacheCompression: false
+            }
+          }
+        ]
       },
       {
         test: /\.less$/,
@@ -60,7 +73,8 @@ module.exports = {
       context: path.resolve(__dirname, '../src'),
       exclude: 'node_modules',
       cache: true,
-      cacheLocation: path.resolve(__dirname, '../node_modules/.cache/eslintcache')
+      cacheLocation: path.resolve(__dirname, '../node_modules/.cache/eslintcache'),
+      threads
     }),
     new htmlPlugin({
       template: path.resolve(__dirname, '../public/index.html')
