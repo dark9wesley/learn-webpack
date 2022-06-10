@@ -24,7 +24,8 @@ module.exports = {
             loader: 'babel-loader',
             options: {
               cacheDirectory: true,
-              cacheCompression: false
+              cacheCompression: false,
+              plugins: ['@babel/plugin-transform-runtime']
             }
           }
         ]
