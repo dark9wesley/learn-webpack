@@ -4,6 +4,7 @@ const { merge } = require('webpack-merge')
 const commonConfig  = require('./webpack.common')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
+const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin')
 
 const threads = os.cpus().length;
 
@@ -20,8 +21,34 @@ const prodConfig = {
       new CssMinimizerPlugin(),
       new TerserPlugin({
         parallel: threads
-      })
-    ]
+      }),
+      new ImageMinimizerPlugin({
+        minimizer: {
+          implementation: ImageMinimizerPlugin.imageminGenerate,
+          options: {
+            plugins: [
+              ['gifsicle', { interlaced: true }],
+              ['jpegtran', { progressive: true }],
+              ['optipng', { optimizationLevel: 5 }],
+              ['svgo', 
+                {
+                  plugins: [
+                    'preset-default',
+                    'prefixIds',
+                    {
+                      name: "sortAttrs",
+                      params: {
+                        xmlnsOrder: 'alphabetical',
+                      },
+                    },
+                  ],
+                },
+              ],
+            ],
+          },
+        },
+      }),
+    ],
   }
 }
 
