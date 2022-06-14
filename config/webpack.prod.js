@@ -49,6 +49,9 @@ const prodConfig = {
         },
       }),
     ],
+    splitChunks: {
+      chunks: 'all'
+    }
   }
 }
 
