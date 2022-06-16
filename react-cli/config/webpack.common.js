@@ -27,7 +27,7 @@ module.exports = {
      {
       oneOf: [
         {
-          test: /\.jsx?/,
+          test: /\.jsx?$/,
           exclude: /node_modules/,
           use: 'babel-loader'
         },
