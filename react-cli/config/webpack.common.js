@@ -1,4 +1,5 @@
 const path = require("path");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: 'development',
@@ -20,7 +21,13 @@ module.exports = {
      }
     ]
   },
- resolve: {
-  extensions: ['.js', '.jsx']
- }
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: 'React-Cli',
+      template: path.resolve(__dirname, '../pubilc/index.html'),
+    })
+  ],
+  resolve: {
+    extensions: ['.js', '.jsx']
+  }
 }
