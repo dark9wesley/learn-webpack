@@ -15,7 +15,10 @@ module.exports = {
         },
         {
           test: /\.css$/,
-          use: ['style-loader', 'css-loader']
+          use: [
+            'style-loader', 
+            'css-loader'
+          ]
         }
       ]
      }
@@ -29,7 +32,7 @@ module.exports = {
     new EslintWebpackPlugin({
       context: path.resolve(__dirname, '../src'),
       exclude: 'node_modules',
-    })
+    }),
   ],
   resolve: {
     extensions: ['.js', '.jsx']
