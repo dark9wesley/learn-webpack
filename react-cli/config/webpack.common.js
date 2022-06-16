@@ -39,6 +39,19 @@ module.exports = {
           test: /\.less$/,
           use: setStyleLoaders('less-loader')
         },
+        {
+          test: /\.(png|svg|jpe?g|gif)$/i,
+          type: 'asset',
+          parser: {
+            dataUrlCondition: {
+              maxSize: 10 * 1024
+            }
+          },
+        },
+        {
+          test: /\.(woff|woff2|eot|ttf|otf)$/,
+          type: 'asset/resource',
+        }
       ]
      }
     ]
