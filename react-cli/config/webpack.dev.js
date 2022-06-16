@@ -6,6 +6,7 @@ module.exports = merge(commonConfig, {
   output: {
     path: undefined,
     filename: "js/[name].[hash:10].js",
+    assetModuleFilename: "asssets/[hash:10][ext][query]",
   },
   devServer: {
     open: true,

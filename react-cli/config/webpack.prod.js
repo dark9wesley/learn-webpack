@@ -26,6 +26,7 @@ module.exports = merge(commonConfig, {
   output: {
     path: path.resolve(__dirname, "../dist"),
     filename: "js/[name].[hash:10].js",
+    assetModuleFilename: "asssets/[hash:10][ext][query]",
     clean: true
   },
   module: {
