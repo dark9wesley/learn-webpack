@@ -2,4 +2,7 @@
   width: 200px;
   height: 200px;
   background-color: deeppink;
+  display: flex;
+  justify-content: center;
+  fill: antiquewhite;
 }

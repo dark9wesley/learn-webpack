@@ -18,7 +18,17 @@ module.exports = merge(commonConfig, {
             test: /\.css$/,
             use: [
               MiniCssExtractPlugin.loader,
-              'css-loader'
+              'css-loader',
+              {
+                loader: 'postcss-loader',
+                options: {
+                  postcssOptions: {
+                    plugins: [
+                      'postcss-preset-env',
+                    ]
+                  }
+                }
+              }
             ]
           }
         ]
