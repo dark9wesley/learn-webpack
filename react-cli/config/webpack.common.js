@@ -2,6 +2,24 @@ const path = require("path");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const EslintWebpackPlugin = require('eslint-webpack-plugin');
 
+const setStyleLoaders = (preProcessor) => {
+  return [
+    'style-loader', 
+    'css-loader',
+    {
+      loader: 'postcss-loader',
+      options: {
+        postcssOptions: {
+          plugins: [
+            'postcss-preset-env',
+          ]
+        }
+      }
+    },
+    preProcessor
+  ].filter(Boolean)
+}
+
 module.exports = {
   entry: "./src/index.jsx",
   module: {
@@ -15,21 +33,12 @@ module.exports = {
         },
         {
           test: /\.css$/,
-          use: [
-            'style-loader', 
-            'css-loader',
-            {
-              loader: 'postcss-loader',
-              options: {
-                postcssOptions: {
-                  plugins: [
-                    'postcss-preset-env',
-                  ]
-                }
-              }
-            }
-          ]
-        }
+          use: setStyleLoaders()
+        },
+        {
+          test: /\.less$/,
+          use: setStyleLoaders('less-loader')
+        },
       ]
      }
     ]
