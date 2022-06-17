@@ -23,6 +23,7 @@ specifiers:
   react: ^18.2.0
   react-dom: ^18.2.0
   react-refresh: ^0.14.0
+  react-router-dom: ^6.3.0
   style-loader: ^3.3.1
   webpack: ^5.73.0
   webpack-cli: ^4.10.0
@@ -31,6 +32,7 @@ specifiers:
 dependencies:
   react: registry.npmmirror.com/react/18.2.0
   react-dom: registry.npmmirror.com/react-dom/18.2.0_react@18.2.0
+  react-router-dom: registry.npmmirror.com/react-router-dom/6.3.0_biqbaboplfbrettd7655fr4n2y
 
 devDependencies:
   '@babel/core': registry.npmmirror.com/@babel/core/7.18.5
@@ -1535,7 +1537,6 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       regenerator-runtime: registry.npmmirror.com/regenerator-runtime/0.13.9
-    dev: true
 
   registry.npmmirror.com/@babel/template/7.16.7:
     resolution: {integrity: sha512-I8j/x8kHUrbYRTUxXrrMbfCa7jxkE7tZre39x3kjr9hvI82cK1FfqLygotcWN5kdPGWcLdWMHpSBavse5tWw3w==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@babel/template/-/template-7.16.7.tgz}
@@ -4113,6 +4114,14 @@ packages:
     hasBin: true
     dev: true
 
+  registry.npmmirror.com/history/5.3.0:
+    resolution: {integrity: sha512-ZqaKwjjrAYUYfLG+htGaIIZ4nioX2L70ZUMIFysS3xvBsSG4x/n1V6TXV3N8ZYNuFGlDirFg32T7B6WOUPDYcQ==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/history/-/history-5.3.0.tgz}
+    name: history
+    version: 5.3.0
+    dependencies:
+      '@babel/runtime': registry.npmmirror.com/@babel/runtime/7.18.3
+    dev: false
+
   registry.npmmirror.com/hpack.js/2.1.6:
     resolution: {integrity: sha512-zJxVehUdMGIKsRaNt7apO2Gqp0BdqW5yaiGHXXmbpvxgBYVZnAql+BJb4RO5ad2MgpbZKn5G6nMnegrH1FcNYQ==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/hpack.js/-/hpack.js-2.1.6.tgz}
     name: hpack.js
@@ -6057,6 +6066,33 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
+  registry.npmmirror.com/react-router-dom/6.3.0_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-uaJj7LKytRxZNQV8+RbzJWnJ8K2nPsOOEuX7aQstlMZKQT0164C+X2w6bnkqU3sjtLvpd5ojrezAyfZ1+0sStw==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/react-router-dom/-/react-router-dom-6.3.0.tgz}
+    id: registry.npmmirror.com/react-router-dom/6.3.0
+    name: react-router-dom
+    version: 6.3.0
+    peerDependencies:
+      react: '>=16.8'
+      react-dom: '>=16.8'
+    dependencies:
+      history: registry.npmmirror.com/history/5.3.0
+      react: registry.npmmirror.com/react/18.2.0
+      react-dom: registry.npmmirror.com/react-dom/18.2.0_react@18.2.0
+      react-router: registry.npmmirror.com/react-router/6.3.0_react@18.2.0
+    dev: false
+
+  registry.npmmirror.com/react-router/6.3.0_react@18.2.0:
+    resolution: {integrity: sha512-7Wh1DzVQ+tlFjkeo+ujvjSqSJmkt1+8JO+T5xklPlgrh70y7ogx75ODRW0ThWhY7S+6yEDks8TYrtQe/aoboBQ==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/react-router/-/react-router-6.3.0.tgz}
+    id: registry.npmmirror.com/react-router/6.3.0
+    name: react-router
+    version: 6.3.0
+    peerDependencies:
+      react: '>=16.8'
+    dependencies:
+      history: registry.npmmirror.com/history/5.3.0
+      react: registry.npmmirror.com/react/18.2.0
+    dev: false
+
   registry.npmmirror.com/react/18.2.0:
     resolution: {integrity: sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/react/-/react-18.2.0.tgz}
     name: react
@@ -6128,7 +6164,6 @@ packages:
     resolution: {integrity: sha512-p3VT+cOEgxFsRRA9X4lkI1E+k2/CtnKtU4gcxyaCUreilL/vqI6CdZ3wxVUx3UOUg+gnUOQQcRI7BmSI656MYA==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/regenerator-runtime/-/regenerator-runtime-0.13.9.tgz}
     name: regenerator-runtime
     version: 0.13.9
-    dev: true
 
   registry.npmmirror.com/regenerator-transform/0.15.0:
     resolution: {integrity: sha512-LsrGtPmbYg19bcPHwdtmXwbW+TqNvtY4riE3P83foeHRroMbH6/2ddFBfab3t7kbzc7v7p4wbkIecHImqt0QNg==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/regenerator-transform/-/regenerator-transform-0.15.0.tgz}

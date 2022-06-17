@@ -2,6 +2,10 @@ import { useEffect } from "react"
 import User from "./utils/common"
 import User2 from "./utils/common2"
 
+import Home from './pages/Home'
+import About from './pages/About'
+import { Link, Routes, Route } from 'react-router-dom'
+
 const App = () => {
 
   useEffect(() => {
@@ -18,6 +22,16 @@ const App = () => {
     <>
       <div>App</div>
       <div className="image"></div>
+      <ul>
+        <li><Link to={'/home'}>home</Link></li>
+        <li><Link to={'/about'}>about</Link></li>
+      </ul>
+
+      <Routes>
+        <Route path="/home" element={<Home />}></Route>
+        <Route path="/about" element={<About />}></Route>
+      </Routes>
+
     </>
   )
 }
