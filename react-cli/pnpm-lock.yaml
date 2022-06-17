@@ -8,6 +8,7 @@ specifiers:
   '@babel/runtime': ^7.18.3
   '@pmmmwh/react-refresh-webpack-plugin': ^0.5.7
   babel-loader: ^8.2.5
+  copy-webpack-plugin: ^11.0.0
   css-loader: ^6.7.1
   css-minimizer-webpack-plugin: ^4.0.0
   eslint: ^8.17.0
@@ -49,6 +50,7 @@ devDependencies:
   '@babel/runtime': registry.npmmirror.com/@babel/runtime/7.18.3
   '@pmmmwh/react-refresh-webpack-plugin': registry.npmmirror.com/@pmmmwh/react-refresh-webpack-plugin/0.5.7_g5otyhka3xgu4m6o2r25nvx6tm
   babel-loader: registry.npmmirror.com/babel-loader/8.2.5_te6ollfzjcco6mbxjl755ucqke
+  copy-webpack-plugin: registry.npmmirror.com/copy-webpack-plugin/11.0.0_webpack@5.73.0
   css-loader: registry.npmmirror.com/css-loader/6.7.1_webpack@5.73.0
   css-minimizer-webpack-plugin: registry.npmmirror.com/css-minimizer-webpack-plugin/4.0.0_webpack@5.73.0
   eslint: registry.npmmirror.com/eslint/8.17.0
@@ -3250,6 +3252,24 @@ packages:
       is-what: registry.npmmirror.com/is-what/3.14.1
     dev: true
 
+  registry.npmmirror.com/copy-webpack-plugin/11.0.0_webpack@5.73.0:
+    resolution: {integrity: sha512-fX2MWpamkW0hZxMEg0+mYnA40LTosOSa5TqZ9GYIBzyJa9C3QUaMPSE2xAi/buNr8u89SfD9wHSQVBzrRa/SOQ==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/copy-webpack-plugin/-/copy-webpack-plugin-11.0.0.tgz}
+    id: registry.npmmirror.com/copy-webpack-plugin/11.0.0
+    name: copy-webpack-plugin
+    version: 11.0.0
+    engines: {node: '>= 14.15.0'}
+    peerDependencies:
+      webpack: ^5.1.0
+    dependencies:
+      fast-glob: registry.npmmirror.com/fast-glob/3.2.11
+      glob-parent: registry.npmmirror.com/glob-parent/6.0.2
+      globby: registry.npmmirror.com/globby/13.1.2
+      normalize-path: registry.npmmirror.com/normalize-path/3.0.0
+      schema-utils: registry.npmmirror.com/schema-utils/4.0.0
+      serialize-javascript: registry.npmmirror.com/serialize-javascript/6.0.0
+      webpack: registry.npmmirror.com/webpack/5.73.0_webpack-cli@4.10.0
+    dev: true
+
   registry.npmmirror.com/core-js-compat/3.23.1:
     resolution: {integrity: sha512-KeYrEc8t6FJsKYB2qnDwRHWaC0cJNaqlHfCpMe5q3j/W1nje3moib/txNklddLPCtGb+etcBIyJ8zuMa/LN5/A==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/core-js-compat/-/core-js-compat-3.23.1.tgz}
     name: core-js-compat
@@ -4963,6 +4983,19 @@ packages:
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
     dependencies:
       array-union: registry.npmmirror.com/array-union/3.0.1
+      dir-glob: registry.npmmirror.com/dir-glob/3.0.1
+      fast-glob: registry.npmmirror.com/fast-glob/3.2.11
+      ignore: registry.npmmirror.com/ignore/5.2.0
+      merge2: registry.npmmirror.com/merge2/1.4.1
+      slash: registry.npmmirror.com/slash/4.0.0
+    dev: true
+
+  registry.npmmirror.com/globby/13.1.2:
+    resolution: {integrity: sha512-LKSDZXToac40u8Q1PQtZihbNdTYSNMuWe+K5l+oa6KgDzSvVrHXlJy40hUP522RjAIoNLJYBJi7ow+rbFpIhHQ==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/globby/-/globby-13.1.2.tgz}
+    name: globby
+    version: 13.1.2
+    engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
+    dependencies:
       dir-glob: registry.npmmirror.com/dir-glob/3.0.1
       fast-glob: registry.npmmirror.com/fast-glob/3.2.11
       ignore: registry.npmmirror.com/ignore/5.2.0

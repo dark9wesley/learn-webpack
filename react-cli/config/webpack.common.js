@@ -1,6 +1,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const EslintWebpackPlugin = require('eslint-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const setStyleLoaders = (preProcessor) => {
   return [
@@ -54,7 +55,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       title: 'React-Cli',
-      template: path.resolve(__dirname, '../pubilc/index.html'),
+      template: path.resolve(__dirname, '../public/index.html'),
     }),
     new EslintWebpackPlugin({
       context: path.resolve(__dirname, '../src'),
@@ -62,6 +63,17 @@ module.exports = {
       cache: true,
       cacheLocation: path.resolve(__dirname, '../node_modules/.cache/.eslintcache'),
     }),
+    new CopyWebpackPlugin({
+      patterns: [
+        { 
+          from: path.resolve(__dirname, '../public'), 
+          to: path.resolve(__dirname, '../dist'),
+          globOptions: {
+            ignore: ["**/index.html"],
+          }, 
+        },
+      ],
+    })
   ],
   resolve: {
     extensions: ['.js', '.jsx']
