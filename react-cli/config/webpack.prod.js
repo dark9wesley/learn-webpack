@@ -84,7 +84,8 @@ module.exports = merge(commonConfig, {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: 'css/[name].[hash:10].css',
+      filename: 'css/[name].[contenthash:10].css',
+      chunkFilename: 'css/[name].[contenthash:10].chunk.css',
     })
   ],
   devtool: 'source-map',
