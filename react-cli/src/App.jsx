@@ -6,8 +6,8 @@ import User2 from "./utils/common2"
 // import About from './pages/About'
 import { Link, Routes, Route } from 'react-router-dom'
 
-const Home = lazy(() => import('./pages/Home'))
-const About = lazy(() => import('./pages/About'))
+const Home = lazy(() => import(/* webpackChunkName: 'home' */ './pages/Home'))
+const About = lazy(() => import(/* webpackChunkName: 'about' */ './pages/About'))
 
 const Loading = () => {
   return <div>loading</div>
