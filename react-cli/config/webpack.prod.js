@@ -35,6 +35,15 @@ module.exports = merge(commonConfig, {
       {
         oneOf: [
           {
+            test: /\.jsx?$/,
+            exclude: /node_modules/,
+            loader: 'babel-loader',
+            options: {
+              cacheDirectory: true,
+              cacheCompression: false,
+            }
+          },
+          {
             test: /\.css$/,
             use: [
               MiniCssExtractPlugin.loader,

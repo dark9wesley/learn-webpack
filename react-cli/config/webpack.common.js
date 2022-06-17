@@ -27,15 +27,6 @@ module.exports = {
      {
       oneOf: [
         {
-          test: /\.jsx?$/,
-          exclude: /node_modules/,
-          loader: 'babel-loader',
-          options: {
-            cacheDirectory: true,
-            cacheCompression: false,
-          }
-        },
-        {
           test: /\.css$/,
           use: setStyleLoaders()
         },
