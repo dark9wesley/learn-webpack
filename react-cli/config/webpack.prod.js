@@ -25,8 +25,9 @@ module.exports = merge(commonConfig, {
   mode: 'production',
   output: {
     path: path.resolve(__dirname, "../dist"),
-    filename: "js/[name].[hash:10].js",
-    assetModuleFilename: "asssets/[hash:10][ext][query]",
+    filename: "js/[name].[contenthash:10].js",
+    assetModuleFilename: "asssets/[contenthash:10][ext][query]",
+    chunkFilename: "js/[name].[contenthash:10].chunk.js",
     clean: true
   },
   module: {
