@@ -17,7 +17,15 @@ const setStyleLoaders = (preProcessor) => {
         }
       }
     },
-    preProcessor
+    preProcessor && {
+      loader: preProcessor,
+      options: preProcessor === 'less-loader' ? {
+        lessOptions: {
+          modifyVars: { '@primary-color': '#1DA57A' },
+          javascriptEnabled: true,
+        },
+      } : {}
+    }
   ].filter(Boolean)
 }
 

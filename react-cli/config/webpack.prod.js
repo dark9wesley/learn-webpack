@@ -19,7 +19,15 @@ const setStyleLoaders = (preProcessor) => {
         }
       }
     },
-    'less-loader'
+    preProcessor && {
+      loader: preProcessor,
+      options: preProcessor === 'less-loader' ? {
+        lessOptions: {
+          modifyVars: { '@primary-color': '#1DA57A' },
+          javascriptEnabled: true,
+        },
+      } : {}
+    }
   ].filter(Boolean)
 }
 
@@ -47,38 +55,11 @@ module.exports = merge(commonConfig, {
           },
           {
             test: /\.css$/,
-            use: [
-              MiniCssExtractPlugin.loader,
-              'css-loader',
-              {
-                loader: 'postcss-loader',
-                options: {
-                  postcssOptions: {
-                    plugins: [
-                      'postcss-preset-env',
-                    ]
-                  }
-                }
-              }
-            ]
+            use: setStyleLoaders()
           },
           {
             test: /\.less$/,
-            use: [
-              MiniCssExtractPlugin.loader,
-              'css-loader',
-              {
-                loader: 'postcss-loader',
-                options: {
-                  postcssOptions: {
-                    plugins: [
-                      'postcss-preset-env',
-                    ]
-                  }
-                }
-              },
-              'less-loader'
-            ]
+            use: setStyleLoaders('less-loader')
           },
         ]
       }

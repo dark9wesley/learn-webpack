@@ -1,6 +1,7 @@
 import { useEffect, lazy, Suspense } from "react"
 import User from "./utils/common"
 import User2 from "./utils/common2"
+import { Button } from 'antd'
 
 // import Home from './pages/Home'
 // import About from './pages/About'
@@ -30,8 +31,8 @@ const App = () => {
       <div>App</div>
       <div className="image"></div>
       <ul>
-        <li><Link to={'/home'}>home</Link></li>
-        <li><Link to={'/about'}>about</Link></li>
+        <li><Link to={'/home'}><Button type="primary">home</Button></Link></li>
+        <li><Link to={'/about'}><Button type="primary">about</Button></Link></li>
       </ul>
 
       <Suspense fallback={<Loading />}>
