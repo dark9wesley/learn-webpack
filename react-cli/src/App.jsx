@@ -1,10 +1,17 @@
-import { useEffect } from "react"
+import { useEffect, lazy, Suspense } from "react"
 import User from "./utils/common"
 import User2 from "./utils/common2"
 
-import Home from './pages/Home'
-import About from './pages/About'
+// import Home from './pages/Home'
+// import About from './pages/About'
 import { Link, Routes, Route } from 'react-router-dom'
+
+const Home = lazy(() => import('./pages/Home'))
+const About = lazy(() => import('./pages/About'))
+
+const Loading = () => {
+  return <div>loading</div>
+}
 
 const App = () => {
 
@@ -27,10 +34,12 @@ const App = () => {
         <li><Link to={'/about'}>about</Link></li>
       </ul>
 
-      <Routes>
-        <Route path="/home" element={<Home />}></Route>
-        <Route path="/about" element={<About />}></Route>
-      </Routes>
+      <Suspense fallback={<Loading />}>
+        <Routes>
+          <Route path="/home" element={<Home />}></Route>
+          <Route path="/about" element={<About />}></Route>
+        </Routes>
+      </Suspense>
 
     </>
   )
