@@ -78,6 +78,9 @@ module.exports = {
   optimization: {
     splitChunks: {
       chunks: 'all',
+    },
+    runtimeChunk: {
+      name: entrypoint => `runtime~${entrypoint.name}`,
     }
   }
 }
