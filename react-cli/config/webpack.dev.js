@@ -35,6 +35,7 @@ module.exports = merge(commonConfig, {
     open: true,
     port: 3000,
     hot: true,
+    historyApiFallback: true,
   },
   devtool: 'cheap-module-source-map',
 })
