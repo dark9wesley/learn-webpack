@@ -3,7 +3,6 @@ const { merge } = require('webpack-merge')
 const commonConfig = require('./webpack.common')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
-const TerserWebpackPlugin = require('terser-webpack-plugin')
 
 const setStyleLoaders = (preProcessor) => {
   return [
@@ -92,8 +91,8 @@ module.exports = merge(commonConfig, {
   ],
   optimization: {
     minimizer: [
+      '...',
       new CssMinimizerPlugin(),
-      new TerserWebpackPlugin(),
     ]
   },
   devtool: 'source-map',
