@@ -1,7 +1,9 @@
 const path = require('node:path')
+const { DefinePlugin } = require('webpack')
 const HtmlPlugin = require('html-webpack-plugin')
-const isDev = process.env.NODE_ENV === 'development'
 const { VueLoaderPlugin } = require('vue-loader')
+
+const isDev = process.env.NODE_ENV === 'development'
 
 module.exports = {
   mode: isDev ? 'development' : 'production',
@@ -24,6 +26,10 @@ module.exports = {
       title: 'vue-cli-demo',
     }),
     new VueLoaderPlugin(),
+    new DefinePlugin({
+      __VUE_OPTIONS_API__: true,
+      __VUE_PROD_DEVTOOLS__: false,
+    })
   ],
   devServer: {
     port: 4000,
