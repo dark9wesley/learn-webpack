@@ -4,6 +4,7 @@ const { VueLoaderPlugin } = require('vue-loader');
 const HtmlPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ESLintWebpackPlugin = require('eslint-webpack-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
 const isDev = process.env.NODE_ENV === 'development';
 
@@ -96,7 +97,11 @@ module.exports = {
     },
     runtimeChunk: {
       name: (entryPoint) => `runtime~${entryPoint.name}` 
-    }
+    },
+    minimizer: [
+      '...',
+      new CssMinimizerPlugin(),
+    ]
   },
   resolve: {
     extensions: ['json', '.js', '.vue'],
