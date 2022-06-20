@@ -30,6 +30,6 @@ export default {
 </script>
 <style lang="less">
 .div1 {
-  color: red;
+  color: lch(53 105 40);
 }
 </style>

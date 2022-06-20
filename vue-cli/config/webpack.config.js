@@ -10,7 +10,14 @@ const isDev = process.env.NODE_ENV === 'development';
 const getStyleLoaders = (loader) => [
   isDev ? 'vue-style-loader' : MiniCssExtractPlugin.loader,
   'css-loader',
-  'postcss-loader',
+  {
+    loader: 'postcss-loader',
+    options: {
+      postcssOptions: {
+        plugins: ['postcss-preset-env'],
+      }
+    }
+  },
   loader,
 ].filter(Boolean);
 
