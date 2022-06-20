@@ -97,6 +97,9 @@ module.exports = {
       name: (entryPoint) => `runtime~${entryPoint.name}` 
     }
   },
+  resolve: {
+    extensions: ['json', '.js', '.vue'],
+  },
   devServer: {
     port: 4000,
     open: true,
