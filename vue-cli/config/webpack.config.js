@@ -1,9 +1,19 @@
-const path = require('node:path')
+const path = require('path')
 const { DefinePlugin } = require('webpack')
-const HtmlPlugin = require('html-webpack-plugin')
 const { VueLoaderPlugin } = require('vue-loader')
+const HtmlPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 const isDev = process.env.NODE_ENV === 'development'
+
+const getStyleLoaders = (loader) => {
+  return [
+    isDev ? 'vue-style-loader' : MiniCssExtractPlugin.loader,
+    'css-loader',
+    'postcss-loader',
+    loader
+  ].filter(Boolean)
+}
 
 module.exports = {
   mode: isDev ? 'development' : 'production',
@@ -14,6 +24,14 @@ module.exports = {
   },
   module: {
     rules: [
+      {
+        test: /\.css$/,
+        use: getStyleLoaders()
+      },
+      {
+        test: /\.less$/,
+        use: getStyleLoaders('less-loader')
+      },
       {
         test: /\.vue$/,
         loader: 'vue-loader'
@@ -29,6 +47,10 @@ module.exports = {
     new DefinePlugin({
       __VUE_OPTIONS_API__: true,
       __VUE_PROD_DEVTOOLS__: false,
+    }),
+    new MiniCssExtractPlugin({
+      filename: 'css/[name].[contenthash:10].css',
+      chunkFilename: 'css/[name].[contenthash:10].chunk.css',
     })
   ],
   devServer: {
