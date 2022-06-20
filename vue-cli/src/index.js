@@ -1,5 +1,7 @@
-console.log('initial build')
 import { createApp } from 'vue'
 import App from './App.vue'
+import router from './router'
 
-createApp(App).mount(document.getElementById('root'))
+createApp(App)
+.use(router)
+.mount(document.getElementById('root'))

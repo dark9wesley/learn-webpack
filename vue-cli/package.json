@@ -37,7 +37,8 @@
     "webpack-dev-server": "^4.9.2"
   },
   "dependencies": {
-    "vue": "^3.2.36"
+    "vue": "^3.2.36",
+    "vue-router": "^4.0.16"
   },
   "browserslist": [
     "> 1%",

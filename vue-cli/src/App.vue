@@ -5,6 +5,11 @@
   </div>
   <button @click="click">点我</button>
   <button @click="click2">点我2</button>
+
+  <router-link to="/home">go home</router-link>
+  <router-link to="/about">go about</router-link>
+
+  <router-view></router-view>
 </template>
 <script>
 import { hi } from './utils/hi'
