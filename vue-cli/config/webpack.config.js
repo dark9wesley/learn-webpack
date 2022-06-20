@@ -20,7 +20,9 @@ module.exports = {
   entry: './src/index.js',
   output: {
     path: isDev ? undefined : path.resolve(__dirname, '../dist'),
-    filename: 'js/[name].[contenthash:10].js'
+    filename: isDev ? 'js/[name].js' : 'js/[name].[contenthash:10].js',
+    chunkFilename: isDev ? 'js/[name].chunk.js' : 'js/[name].[contenthash:10].chunk.js',
+    assetModuleFilename: 'assets/[hash][ext][query]',
   },
   module: {
     rules: [
