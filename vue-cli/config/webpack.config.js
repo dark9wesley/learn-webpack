@@ -80,7 +80,7 @@ module.exports = {
       __VUE_OPTIONS_API__: true,
       __VUE_PROD_DEVTOOLS__: false,
     }),
-    new MiniCssExtractPlugin({
+    !isDev && new MiniCssExtractPlugin({
       filename: 'css/[name].[contenthash:10].css',
       chunkFilename: 'css/[name].[contenthash:10].chunk.css',
     }),
@@ -90,7 +90,7 @@ module.exports = {
       cache: true,
       cacheLocation: path.resolve(__dirname, '../node_modules/.cache/.eslintcache'),
     }),
-  ],
+  ].filter(Boolean),
   optimization: {
     splitChunks: {
       chunks: 'all',
@@ -98,6 +98,7 @@ module.exports = {
     runtimeChunk: {
       name: (entryPoint) => `runtime~${entryPoint.name}` 
     },
+    minimize: !isDev,
     minimizer: [
       '...',
       new CssMinimizerPlugin(),
