@@ -22,6 +22,7 @@ module.exports = {
     filename: isDev ? 'js/[name].js' : 'js/[name].[contenthash:10].js',
     chunkFilename: isDev ? 'js/[name].chunk.js' : 'js/[name].[contenthash:10].chunk.js',
     assetModuleFilename: 'assets/[hash][ext][query]',
+    clean: true
   },
   module: {
     rules: [
