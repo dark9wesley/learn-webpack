@@ -35,6 +35,19 @@ module.exports = {
         use: getStyleLoaders('less-loader')
       },
       {
+        test: /\.(jpe?g|png|svg|gif)$/i,
+        type: 'asset',
+        parser: {
+          dataUrlCondition: {
+            maxSize: 10 * 1024 // 4kb
+          }
+        }
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/,
+        type: 'asset/resource',
+      },
+      {
         test: /\.vue$/,
         loader: 'vue-loader'
       },
