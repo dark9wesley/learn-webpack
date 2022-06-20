@@ -7,6 +7,8 @@
   <button @click="click2">点我2</button>
 </template>
 <script>
+import { hi } from './utils/hi'
+
 export default {
   name: 'App',
   data(){
@@ -21,6 +23,7 @@ export default {
     click2(){
       const a = [1, 2, 3, 4, 5]
       this.msg = [...a].join(',')
+      hi()
     },
   }
 }

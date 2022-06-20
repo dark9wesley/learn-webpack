@@ -1,19 +1,18 @@
-const path = require('path')
-const { DefinePlugin } = require('webpack')
-const { VueLoaderPlugin } = require('vue-loader')
-const HtmlPlugin = require('html-webpack-plugin')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const path = require('path');
+const { DefinePlugin } = require('webpack');
+const { VueLoaderPlugin } = require('vue-loader');
+const HtmlPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const ESLintWebpackPlugin = require('eslint-webpack-plugin');
 
-const isDev = process.env.NODE_ENV === 'development'
+const isDev = process.env.NODE_ENV === 'development';
 
-const getStyleLoaders = (loader) => {
-  return [
-    isDev ? 'vue-style-loader' : MiniCssExtractPlugin.loader,
-    'css-loader',
-    'postcss-loader',
-    loader
-  ].filter(Boolean)
-}
+const getStyleLoaders = (loader) => [
+  isDev ? 'vue-style-loader' : MiniCssExtractPlugin.loader,
+  'css-loader',
+  'postcss-loader',
+  loader,
+].filter(Boolean);
 
 module.exports = {
   mode: isDev ? 'development' : 'production',
@@ -28,20 +27,20 @@ module.exports = {
     rules: [
       {
         test: /\.css$/,
-        use: getStyleLoaders()
+        use: getStyleLoaders(),
       },
       {
         test: /\.less$/,
-        use: getStyleLoaders('less-loader')
+        use: getStyleLoaders('less-loader'),
       },
       {
         test: /\.(jpe?g|png|svg|gif)$/i,
         type: 'asset',
         parser: {
           dataUrlCondition: {
-            maxSize: 10 * 1024 // 4kb
-          }
-        }
+            maxSize: 10 * 1024, // 4kb
+          },
+        },
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
@@ -54,7 +53,7 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
-      }
+      },
     ],
   },
   plugins: [
@@ -70,12 +69,18 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: 'css/[name].[contenthash:10].css',
       chunkFilename: 'css/[name].[contenthash:10].chunk.css',
-    })
+    }),
+    new ESLintWebpackPlugin({
+      context: path.resolve(__dirname, '../src'),
+      exclude: 'node_modules',
+      cache: true,
+      cacheLocation: path.resolve(__dirname, '../node_modules/.cache/.eslintcache'),
+    }),
   ],
   devServer: {
     port: 4000,
     open: true,
     hot: true,
     historyApiFallback: true,
-  }
-}
+  },
+};
