@@ -103,4 +103,5 @@ module.exports = {
     hot: true,
     historyApiFallback: true,
   },
+  devtool: isDev ? 'cheap-module-source-map' : 'source-map',
 };
