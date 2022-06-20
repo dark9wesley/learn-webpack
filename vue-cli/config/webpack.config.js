@@ -89,6 +89,14 @@ module.exports = {
       cacheLocation: path.resolve(__dirname, '../node_modules/.cache/.eslintcache'),
     }),
   ],
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+    },
+    runtimeChunk: {
+      name: (entryPoint) => `runtime~${entryPoint.name}` 
+    }
+  },
   devServer: {
     port: 4000,
     open: true,
